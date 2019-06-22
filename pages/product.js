@@ -71,39 +71,39 @@ const Product = ({ results, info }) => {
       <div className="ph3 ph5-ns">
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Identifier:</dt>
-          <dd className="dib ml0 gray">{info.boxId}</dd>
+          <dd className="dib ml0 ph1 gray">{info.boxId}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Category:</dt>
-          <dd className="dib ml0 gray">{info.categoryName}</dd>
+          <dd className="dib ml0 ph1 gray">{info.categoryName}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Main Category:</dt>
-          <dd className="dib ml0 gray">{info.superCatName}</dd>
+          <dd className="dib ml0 ph1 gray">{info.superCatName}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Unavailble:</dt>
-          <dd className="dib ml0 gray">{info.cannotBuy}</dd>
+          <dd className="dib ml0 ph1 gray">{info.cannotBuy ? "yes" : "no"}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Newly Added:</dt>
-          <dd className="dib ml0 gray">{info.isNewBox}</dd>
+          <dd className="dib ml0 ph1 gray">{info.isNewBox ? "yes" : "no"}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Current Price:</dt>
-          <dd className="dib ml0 gray">{info.sellPrice}</dd>
+          <dd className="dib ml0 ph1 gray">£{info.sellPrice}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Current Trade Price (Cash):</dt>
-          <dd className="dib ml0 gray">{info.cashPrice}</dd>
+          <dd className="dib ml0 ph1 gray">£{info.cashPrice}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Current Trade Price (Credit):</dt>
-          <dd className="dib ml0 gray">{info.exchangePrice}</dd>
+          <dd className="dib ml0 ph1 gray">£{info.exchangePrice}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Out of Stock:</dt>
-          <dd className="dib ml0 gray">{info.outOfStock}</dd>
+          <dd className="dib ml0 ph1 gray">{info.outOfStock ? "yes" : "no"}</dd>
         </dl>
       </div>
 

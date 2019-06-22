@@ -82,8 +82,12 @@ const Product = ({ results, info }) => {
           <dd className="dib ml0 ph1 gray">{info.superCatName}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
-          <dt className="dib b">Unavailble:</dt>
-          <dd className="dib ml0 ph1 gray">{info.cannotBuy ? "yes" : "no"}</dd>
+          <dt className="dib b">Available:</dt>
+          <dd className="dib ml0 ph1 gray">{info.cannotBuy ? "no" : "yes"}</dd>
+        </dl>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Out of Stock:</dt>
+          <dd className="dib ml0 ph1 gray">{info.outOfStock ? "yes" : "no"}</dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Newly Added:</dt>
@@ -106,10 +110,6 @@ const Product = ({ results, info }) => {
           <dd className="dib ml0 ph1 gray">
             £{Number.parseFloat(info.exchangePrice).toFixed(2)}
           </dd>
-        </dl>
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Out of Stock:</dt>
-          <dd className="dib ml0 ph1 gray">{info.outOfStock ? "yes" : "no"}</dd>
         </dl>
       </div>
 

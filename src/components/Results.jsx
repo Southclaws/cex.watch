@@ -28,7 +28,6 @@ export const Results = ({ results }) => {
                   "link",
                   "pv1",
                   "red",
-                  "bg-animate",
                   "hover-bg-light-red",
                   "hover-white"
                 ].join(" ")}

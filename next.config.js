@@ -8,5 +8,5 @@ module.exports = withPlugins([withCSS()], {
     };
     return config;
   },
-  target: "serverless"
+  target: "server"
 });

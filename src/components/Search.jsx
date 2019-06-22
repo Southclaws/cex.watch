@@ -2,8 +2,8 @@ import React from "react";
 
 export const Search = ({ doSearch }) => {
   return (
-    <nav className="pa3 pa4-ns">
-      <div className="pa4-l">
+    <nav className="pa3">
+      <div className="pa3-l">
         <form
           className="bg-red mw7 center pa4 br2-ns ba b--black-10"
           method="get"

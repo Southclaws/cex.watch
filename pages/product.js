@@ -51,7 +51,7 @@ const Product = ({ results, info }) => {
   const styles = styler(columns, "Reds");
 
   return (
-    <div className="pa1 mw7 center">
+    <div className="ph1 mw7 center">
       <NextSeo
         config={{
           description:

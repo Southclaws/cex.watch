@@ -113,6 +113,11 @@ const Product = ({ results, info }) => {
         </dl>
       </div>
 
+      <noscript>
+        <h4 className="center ph3 ph5-ns">
+          This chart requires JavaScript to render fully.
+        </h4>
+      </noscript>
       <ChartContainer
         timeRange={series.range()}
         onTrackerChanged={t => setTracker(t)}

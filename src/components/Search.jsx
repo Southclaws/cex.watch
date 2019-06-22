@@ -7,13 +7,13 @@ export const Search = ({ doSearch }) => {
         <form
           className="bg-red mw7 center pa4 br2-ns ba b--black-10"
           method="get"
+          action="/"
           onSubmit={doSearch}
         >
           <fieldset className="cf bn ma0 pa0">
             <legend className="pa0 f5 f4-ns mb3 white">
               Search CeX Products
             </legend>
-            <input type="hidden" name="action-creator" value="search" />
 
             <label className="clip" htmlFor="query" />
             <input

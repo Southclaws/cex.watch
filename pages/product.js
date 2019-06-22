@@ -113,43 +113,45 @@ const Product = ({ results, info }) => {
         </dl>
       </div>
 
-      <noscript>
-        <h4 className="center ph3 ph5-ns">
-          This chart requires JavaScript to render fully.
-        </h4>
-      </noscript>
-      <ChartContainer
-        timeRange={series.range()}
-        onTrackerChanged={t => setTracker(t)}
-        trackerHintWidth={100}
-        trackerHintHeight={100}
-        trackerPosition={tracker}
-        trackerValues={trackerData}
-      >
-        <ChartRow height="350">
-          <YAxis
-            id="y"
-            min={0}
-            max={max}
-            min={min}
-            width="100%"
-            type="linear"
-          />
-          <Charts>
-            <AreaChart
-              axis="y"
-              style={styles}
-              series={series}
-              stack={false}
-              columns={{ up: columns, down: [] }}
-              fillOpacity={0.4}
-              interpolation="curveBasis"
-              highlight={highlight}
-              onHighlightChange={highlight => setHighlight(highlight)}
+      <div className="pv5">
+        <noscript>
+          <h4 className="center ph3 ph5-ns">
+            This chart requires JavaScript to render fully.
+          </h4>
+        </noscript>
+        <ChartContainer
+          timeRange={series.range()}
+          onTrackerChanged={t => setTracker(t)}
+          trackerHintWidth={100}
+          trackerHintHeight={100}
+          trackerPosition={tracker}
+          trackerValues={trackerData}
+        >
+          <ChartRow height="350">
+            <YAxis
+              id="y"
+              min={0}
+              max={max}
+              min={min}
+              width="100%"
+              type="linear"
             />
-          </Charts>
-        </ChartRow>
-      </ChartContainer>
+            <Charts>
+              <AreaChart
+                axis="y"
+                style={styles}
+                series={series}
+                stack={false}
+                columns={{ up: columns, down: [] }}
+                fillOpacity={0.4}
+                interpolation="curveBasis"
+                highlight={highlight}
+                onHighlightChange={highlight => setHighlight(highlight)}
+              />
+            </Charts>
+          </ChartRow>
+        </ChartContainer>{" "}
+      </div>
     </div>
   );
 };

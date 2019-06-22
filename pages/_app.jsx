@@ -1,6 +1,8 @@
 import React from "react";
 import App, { Container } from "next/app";
 import Head from "next/head";
+import Router from "next/router";
+import withGA from "next-ga";
 
 import { Search } from "../src/components/Search";
 
@@ -25,7 +27,7 @@ class Layout extends React.Component {
   }
 }
 
-export default class MyApp extends App {
+class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
@@ -37,3 +39,5 @@ export default class MyApp extends App {
     );
   }
 }
+
+export default withGA("UA-78828365-9", Router)(MyApp);

@@ -91,15 +91,21 @@ const Product = ({ results, info }) => {
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Current Price:</dt>
-          <dd className="dib ml0 ph1 gray">£{info.sellPrice}</dd>
+          <dd className="dib ml0 ph1 gray">
+            £{Number.parseFloat(info.sellPrice).toFixed(2)}
+          </dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Current Trade Price (Cash):</dt>
-          <dd className="dib ml0 ph1 gray">£{info.cashPrice}</dd>
+          <dd className="dib ml0 ph1 gray">
+            £{Number.parseFloat(info.cashPrice).toFixed(2)}
+          </dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Current Trade Price (Credit):</dt>
-          <dd className="dib ml0 ph1 gray">£{info.exchangePrice}</dd>
+          <dd className="dib ml0 ph1 gray">
+            £{Number.parseFloat(info.exchangePrice).toFixed(2)}
+          </dd>
         </dl>
         <dl className="f6 lh-title mv2">
           <dt className="dib b">Out of Stock:</dt>

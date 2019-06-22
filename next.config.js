@@ -7,5 +7,6 @@ module.exports = withPlugins([withCSS()], {
       fs: "empty"
     };
     return config;
-  }
+  },
+  target: "serverless"
 });

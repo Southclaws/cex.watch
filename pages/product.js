@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import fetch from "isomorphic-unfetch";
-import moment from "moment";
+import NextSeo from "next-seo";
 import {
   ChartContainer,
   ChartRow,
@@ -52,43 +52,58 @@ const Product = ({ results, info }) => {
 
   return (
     <div className="pa1 mw7 center">
+      <NextSeo
+        config={{
+          description:
+            "Exchange price, Sell price and Buy price tracking for all CeX products.",
+          openGraph: {
+            url: `https://www.cex.watch/product/${info.boxId}`,
+            title: info.boxName,
+            description: `Exchange, Sell, Buy price history for ${
+              info.boxName
+            }`,
+            site_name: "CeX Watch"
+          }
+        }}
+      />
+
       <h2 className="ph3">{info.boxName}</h2>
       <div className="ph3 ph5-ns">
-        <dl class="f6 lh-title mv2">
-          <dt class="dib b">Identifier:</dt>
-          <dd class="dib ml0 gray">{info.boxId}</dd>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Identifier:</dt>
+          <dd className="dib ml0 gray">{info.boxId}</dd>
         </dl>
-        <dl class="f6 lh-title mv2">
-          <dt class="dib b">Category:</dt>
-          <dd class="dib ml0 gray">{info.categoryName}</dd>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Category:</dt>
+          <dd className="dib ml0 gray">{info.categoryName}</dd>
         </dl>
-        <dl class="f6 lh-title mv2">
-          <dt class="dib b">Main Category:</dt>
-          <dd class="dib ml0 gray">{info.superCatName}</dd>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Main Category:</dt>
+          <dd className="dib ml0 gray">{info.superCatName}</dd>
         </dl>
-        <dl class="f6 lh-title mv2">
-          <dt class="dib b">Unavailble:</dt>
-          <dd class="dib ml0 gray">{info.cannotBuy}</dd>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Unavailble:</dt>
+          <dd className="dib ml0 gray">{info.cannotBuy}</dd>
         </dl>
-        <dl class="f6 lh-title mv2">
-          <dt class="dib b">Newly Added:</dt>
-          <dd class="dib ml0 gray">{info.isNewBox}</dd>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Newly Added:</dt>
+          <dd className="dib ml0 gray">{info.isNewBox}</dd>
         </dl>
-        <dl class="f6 lh-title mv2">
-          <dt class="dib b">Current Price:</dt>
-          <dd class="dib ml0 gray">{info.sellPrice}</dd>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Current Price:</dt>
+          <dd className="dib ml0 gray">{info.sellPrice}</dd>
         </dl>
-        <dl class="f6 lh-title mv2">
-          <dt class="dib b">Current Trade Price (Cash):</dt>
-          <dd class="dib ml0 gray">{info.cashPrice}</dd>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Current Trade Price (Cash):</dt>
+          <dd className="dib ml0 gray">{info.cashPrice}</dd>
         </dl>
-        <dl class="f6 lh-title mv2">
-          <dt class="dib b">Current Trade Price (Credit):</dt>
-          <dd class="dib ml0 gray">{info.exchangePrice}</dd>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Current Trade Price (Credit):</dt>
+          <dd className="dib ml0 gray">{info.exchangePrice}</dd>
         </dl>
-        <dl class="f6 lh-title mv2">
-          <dt class="dib b">Out of Stock:</dt>
-          <dd class="dib ml0 gray">{info.outOfStock}</dd>
+        <dl className="f6 lh-title mv2">
+          <dt className="dib b">Out of Stock:</dt>
+          <dd className="dib ml0 gray">{info.outOfStock}</dd>
         </dl>
       </div>
 

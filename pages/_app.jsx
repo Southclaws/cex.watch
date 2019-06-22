@@ -3,6 +3,7 @@ import App, { Container } from "next/app";
 import Head from "next/head";
 import Router from "next/router";
 import withGA from "next-ga";
+import NextSeo from "next-seo";
 
 import { Search } from "../src/components/Search";
 
@@ -17,6 +18,14 @@ class Layout extends React.Component {
             href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"
           />
         </Head>
+        <NextSeo
+          config={{
+            title: "CeX Watch!",
+            canonical: "https://www.cex.watch/",
+            description:
+              "Exchange price, Sell price and Buy price tracking for all CeX products."
+          }}
+        />
 
         <main className="avenir">
           <Search />

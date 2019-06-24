@@ -15,7 +15,7 @@ export const Results = ({ results }) => {
   }
 
   return (
-    <ul className="list pl0 measure center">
+    <ul className="list pl0 ph4 measure center">
       {results.map(v => {
         return (
           <li

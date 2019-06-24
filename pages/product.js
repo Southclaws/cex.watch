@@ -7,7 +7,8 @@ import {
   YAxis,
   styler,
   Charts,
-  AreaChart
+  AreaChart,
+  Resizable
 } from "react-timeseries-charts";
 import { TimeSeries } from "pondjs";
 
@@ -51,7 +52,7 @@ const Product = ({ results, info }) => {
   const styles = styler(columns, "Reds");
 
   return (
-    <div className="ph1 mw7 center">
+    <div className="pa1 center">
       <NextSeo
         config={{
           description:
@@ -67,91 +68,108 @@ const Product = ({ results, info }) => {
         }}
       />
 
-      <h2 className="ph3">{info.boxName}</h2>
-      <div className="ph3 ph5-ns">
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Identifier:</dt>
-          <dd className="dib ml0 ph1 gray">{info.boxId}</dd>
-        </dl>
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Category:</dt>
-          <dd className="dib ml0 ph1 gray">{info.categoryName}</dd>
-        </dl>
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Main Category:</dt>
-          <dd className="dib ml0 ph1 gray">{info.superCatName}</dd>
-        </dl>
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Available:</dt>
-          <dd className="dib ml0 ph1 gray">{info.cannotBuy ? "no" : "yes"}</dd>
-        </dl>
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Out of Stock:</dt>
-          <dd className="dib ml0 ph1 gray">{info.outOfStock ? "yes" : "no"}</dd>
-        </dl>
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Newly Added:</dt>
-          <dd className="dib ml0 ph1 gray">{info.isNewBox ? "yes" : "no"}</dd>
-        </dl>
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Current Price:</dt>
-          <dd className="dib ml0 ph1 gray">
-            £{Number.parseFloat(info.sellPrice).toFixed(2)}
-          </dd>
-        </dl>
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Current Trade Price (Cash):</dt>
-          <dd className="dib ml0 ph1 gray">
-            £{Number.parseFloat(info.cashPrice).toFixed(2)}
-          </dd>
-        </dl>
-        <dl className="f6 lh-title mv2">
-          <dt className="dib b">Current Trade Price (Credit):</dt>
-          <dd className="dib ml0 ph1 gray">
-            £{Number.parseFloat(info.exchangePrice).toFixed(2)}
-          </dd>
-        </dl>
-      </div>
-
-      <div className="pv5">
-        <noscript>
-          <h4 className="center ph3 ph5-ns">
-            This chart requires JavaScript to render fully.
-          </h4>
-        </noscript>
-        <ChartContainer
-          timeRange={series.range()}
-          onTrackerChanged={t => setTracker(t)}
-          trackerHintWidth={100}
-          trackerHintHeight={100}
-          trackerPosition={tracker}
-          trackerValues={trackerData}
-        >
-          <ChartRow height="350">
-            <YAxis
-              id="y"
-              min={0}
-              max={max}
-              min={min}
-              width="100%"
-              type="linear"
-            />
-            <Charts>
-              <AreaChart
-                axis="y"
-                style={styles}
-                series={series}
-                stack={false}
-                columns={{ up: columns, down: [] }}
-                fillOpacity={0.4}
-                interpolation="curveBasis"
-                highlight={highlight}
-                onHighlightChange={highlight => setHighlight(highlight)}
-              />
-            </Charts>
-          </ChartRow>
-        </ChartContainer>{" "}
-      </div>
+      <main className="ph1 ph4-ns">
+        <section>
+          <h2 className="ph3">{info.boxName}</h2>
+          <div className="ph3 ph5-ns">
+            <dl className="f6 lh-title mv2">
+              <dt className="dib b">Identifier:</dt>
+              <dd className="dib ml0 ph1 gray">{info.boxId}</dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
+              <dt className="dib b">Category:</dt>
+              <dd className="dib ml0 ph1 gray">{info.categoryName}</dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
+              <dt className="dib b">Main Category:</dt>
+              <dd className="dib ml0 ph1 gray">{info.superCatName}</dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
+              <dt className="dib b">Available:</dt>
+              <dd className="dib ml0 ph1 gray">
+                {info.cannotBuy ? "no" : "yes"}
+              </dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
+              <dt className="dib b">Out of Stock:</dt>
+              <dd className="dib ml0 ph1 gray">
+                {info.outOfStock ? "yes" : "no"}
+              </dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
+              <dt className="dib b">Newly Added:</dt>
+              <dd className="dib ml0 ph1 gray">
+                {info.isNewBox ? "yes" : "no"}
+              </dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
+              <dt className="dib b">Current Price:</dt>
+              <dd className="dib ml0 ph1 gray">
+                £{Number.parseFloat(info.sellPrice).toFixed(2)}
+              </dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
+              <dt className="dib b">Current Trade Price (Cash):</dt>
+              <dd className="dib ml0 ph1 gray">
+                £{Number.parseFloat(info.cashPrice).toFixed(2)}
+              </dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
+              <dt className="dib b">Current Trade Price (Credit):</dt>
+              <dd className="dib ml0 ph1 gray">
+                £{Number.parseFloat(info.exchangePrice).toFixed(2)}
+              </dd>
+            </dl>
+          </div>
+        </section>
+        <section>
+          <div className="pv3 dt dt--fixed">
+            <noscript>
+              <h4 className="center ph3 ph5-ns">
+                This chart requires JavaScript to render fully.
+              </h4>
+            </noscript>
+            <Resizable>
+              <ChartContainer
+                timeRange={series.range()}
+                timeAxisTickCount={7}
+                onTrackerChanged={t => setTracker(t)}
+                trackerHintWidth={100}
+                trackerHintHeight={100}
+                trackerPosition={tracker}
+                trackerValues={trackerData}
+              >
+                <ChartRow height="350">
+                  <YAxis
+                    id="y"
+                    width={35}
+                    min={0}
+                    max={max}
+                    min={min}
+                    type="linear"
+                    format={v => {
+                      return `£${v.toFixed(2)}`;
+                    }}
+                  />
+                  <Charts>
+                    <AreaChart
+                      axis="y"
+                      style={styles}
+                      series={series}
+                      stack={false}
+                      columns={{ up: columns, down: [] }}
+                      fillOpacity={0.4}
+                      interpolation="curveBasis"
+                      highlight={highlight}
+                      onHighlightChange={highlight => setHighlight(highlight)}
+                    />
+                  </Charts>
+                </ChartRow>
+              </ChartContainer>
+            </Resizable>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
